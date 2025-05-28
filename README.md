@@ -1,46 +1,101 @@
-# Getting Started with Create React App
+# Invest Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Модульное веб-приложение на базе React + TypeScript для отображения и анализа инвестиционных данных о стартапах. Использует тестовые данные, предоставляет интерактивные компоненты и готово к интеграции с API.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Реализованные функции
 
-### `npm start`
+- Базовая структура React/TypeScript
+  - Инициализация с Create React App
+  - Модульная архитектура (компоненты, хуки)
+  - Строгая типизация с использованием TypeScript
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Основные компоненты
+  - `DataDisplay`: Отображение данных от краулера
+  - `RankingTable`: Рейтинг стартапов по ML-оценке
+  - `StartupsGrid`: Интерактивный список стартапов
+  - `InvestorsList`: Список инвесторов
+  - `DealsTable`: История сделок
+  - `RankedInvestors`: Рекомендованные инвесторы
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Глобальное состояние
+  - Управление состоянием через `useState`
+  - Передача данных между компонентами через props
 
-### `npm test`
+- Данные
+  - Используются тестовые данные
+  - Готово к подключению настоящего API
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Архитектура приложения
+![Architecture](https://github.com/user-attachments/assets/1957f3c6-5dfc-457f-a2ad-3c2705ef36cf)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Объяснение архитектуры
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Точка входа**:  
+  `index.html` → `index.tsx` → `App.tsx`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Поток данных**:  
+  - Компоненты получают данные через `props`  
+  - `StartupsGrid` может изменять родительское состояние (`selectedStartup`)
 
-### `npm run eject`
+- **Иерархия компонентов**:  
+  - `App.tsx` — корневой компонент  
+  - Остальные — дочерние
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- **Данные**:  
+  - Используются мок-данные  
+  - Типы определены в `types.ts`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Структура проекта
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```plaintext
+invest-frontend/
+├── src/
+│   ├── components/
+│   │   ├── DataDisplay.tsx
+│   │   ├── DealsTable.tsx
+│   │   ├── InvestorsList.tsx
+│   │   ├── RankedInvestors.tsx
+│   │   ├── RankingTable.tsx
+│   │   └── StartupsGrid.tsx
+│   ├── types.ts           # Общие интерфейсы и типы
+│   ├── App.tsx            # Главный компонент
+│   └── index.tsx          # Точка входа
+├── public/
+└── package.json
+```
 
-## Learn More
+## Преимущества архитектуры
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Модульность**
+  - Компоненты независимы и переиспользуемы
+  - Типизация централизована
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Масштабируемость**
+  - Легкое добавление новых функций
+  - Готовность к работе с API
+
+- **Поддерживаемость**
+  - Четкое разделение ответственности
+  - Самодокументируемый код благодаря TypeScript
+
+---
+
+## Следующие шаги
+
+1. **Интеграция с API**
+   - Заменить мок-данные на реальные запросы
+
+2. **Улучшение интерфейса**
+   - Добавить фильтрацию и адаптивную верстку
+
+3. **Тестирование**
+   - Юнит-тесты компонентов
+   - Интеграционные тесты
+
+
